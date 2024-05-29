@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main() {
+    int a,b;
+    scanf("%d %d",&a,&b);
+    printf("%d",a*b-1);
+    return 0;
+}
+
+
+초콜렛을 쪼개는 횟수는 가로*세로-1이니까 가로(a)와 세로(b)를 곱하고 1을 빼서 출력한다
