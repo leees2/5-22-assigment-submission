@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int n,m,a,sum=0;
+    int cnt=0;
+        scanf("%d %d",&n,&m);
+    for (int i=0;i<n;i++){
+        scanf("%d",&a);
+        sum+=a;
+        if(sum<0)
+            sum=0;
+        if (sum>=m){
+            cnt++;
+        }
+    }
+    printf("%d",cnt);
+    return 0;
+}
+
+입력받은 값을 sum값에 더해 m보다 큰 날이 있을때마다 cnt값에 1씩 더해 총 일수를 구한다
