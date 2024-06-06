@@ -1,0 +1,53 @@
+배열로 큐 구현
+#include <stdio.h>
+
+#define MAX 100
+
+int queue[MAX];
+int front = 0; //큐의 첫 요소
+int rear = -1; //큐의 마지막 요소
+
+// 큐가 비어 있는지 확인하는 함수
+int empty() {
+    return rear < front;
+}
+
+// 큐가 가득 찼는지 확인하는 함수
+int full() {
+    return rear == MAX - 1;
+}
+
+// 큐에 값을 추가하는 함수
+void enqueue(int num) {
+    if (full()) {
+        printf("큐가 가득 찼습니다.\n");
+    } else {
+        queue[++rear] = num;
+    }
+}
+
+// 큐에서 값을 제거하고 반환하는 함수
+int dequeue() {
+    if (empty()) {
+        printf("큐가 비어 있습니다.\n");
+    } else {
+        printf("%d\n",queue[front++]);
+    }
+}
+
+int main() {
+    #큐 값 추가
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    enqueue(100);
+
+    #큐 값 제거
+    dequeue();
+    dequeue();
+    dequeue();
+    dequeue();
+    dequeue();
+
+    return 0;
+}
