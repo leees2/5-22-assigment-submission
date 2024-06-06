@@ -1,0 +1,48 @@
+배열로 스택 구현
+#include <stdio.h>
+
+#define MAX 100
+
+int stack[MAX]; 
+int top = -1;
+
+// 스택이 비어 있는지 확인하는 함수
+int empty() {
+    return top == -1;
+}
+
+// 스택이 가득 찼는지 확인하는 함수
+int full() {
+    return top == MAX - 1;
+}
+
+// 스택에 값을 추가하는 함수
+void push(int num) {
+    if (full()) {
+        printf("스택이 가득 찼습니다.\n");
+    } else {
+        stack[++top] = num;
+    }
+}
+
+// 스택에서 값을 제거하고 반환하는 함수
+int pop() {
+    if (empty()) {
+        printf("스택이 비어 있습니다.\n");
+    } else {
+        printf("%d\n",stack[top--]);
+    }
+}
+
+int main() {
+    push(10);
+    push(20);
+    push(30);
+    push(100);
+
+    pop();
+    pop();
+    pop();
+    pop();
+    pop();
+}
