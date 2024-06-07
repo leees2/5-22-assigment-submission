@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+    int size;    //벡터의 크기
+    int* data;   //벡터의 배열여
+} vector;
+
+//벡터 생성
+vector* create_vector(int n) {
+    vector* p = malloc(sizeof(vector));
+    if (p) {
+        p->data = malloc(n * sizeof(int));
+        p->size = n;
+    }
+    return p;
+}
+
+//벡터 제거
+void delete_vector(vector* v) {
+    if (v) {
+        free(v->data);
+        free(v);
+    }
+}
+
+//벡터 요소 접근
+int get_vector(vector* v, int n) {
+    if (v && n < v->size) {
+        printf("%d\n" ,v->data[n]);
+    }
+}
+
+//벡터 요소 설정
+void set_vector(vector* v, int n, int x) {
+    v->data[n] = x;
+}
+
+int main() {
+    vector* v = create_vector(10);
+    set_vector(v, 0, 10);
+    set_vector(v, 1, 20);
+    set_vector(v, 2, 30);
+    
+    get_vector(v,0);
+    get_vector(v,1);
+    get_vector(v,2);
+    get_vector(v,3);
+    
+    delete_vector(v);
+}
+
+벡터 구현
