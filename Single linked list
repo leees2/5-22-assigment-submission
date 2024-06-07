@@ -10,10 +10,6 @@ typedef struct Node {
 // 노드 생성 함수
 Node* createNode(int data) {
     Node* newNode = (Node*)malloc(sizeof(Node));
-    if (newNode == NULL) {
-        printf("메모리 할당 오류\n");
-        exit(1);
-    }
     newNode->data = data;
     newNode->next = NULL;
     return newNode;
@@ -36,7 +32,7 @@ void append(Node** head, int data) {
 // 리스트 출력 함수
 void printList(Node* head) {
     while (head != NULL) {
-        printf("%d ", head->data);
+        printf("%d\n", head->data);
         head = head->next;
     }
     printf("\n");
@@ -45,9 +41,9 @@ void printList(Node* head) {
 int main() {
     Node* head = NULL;
 
-    append(&head, 1);
-    append(&head, 2);
-    append(&head, 3);
+    append(&head, 10);
+    append(&head, 20);
+    append(&head, 30);
 
     printList(head);
 
